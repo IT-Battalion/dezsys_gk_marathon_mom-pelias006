@@ -1,4 +1,4 @@
-package model;
+package main.model;
 
 
 /**
@@ -15,6 +15,8 @@ public class Party {
         this.partyID = partyID;
         this.timing = timing;
     }
+
+    public Party() {}
 
     public int getPartyID() {
         return partyID;

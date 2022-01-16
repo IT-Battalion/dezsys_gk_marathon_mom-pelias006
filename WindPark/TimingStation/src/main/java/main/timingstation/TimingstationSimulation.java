@@ -1,16 +1,18 @@
-package timingstation;
+package main.timingstation;
 
-import model.TimingstationData;
-import model.CompetitionData;
-import model.Party;
-import model.WeatherData;
+import main.model.CompetitionData;
+import main.model.Party;
+import main.model.TimingstationData;
+import main.model.WeatherData;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
 
 public class TimingstationSimulation {
-    private HashMap<String, TimingstationData> realData = new HashMap<>();
+    private TimingstationData data = new TimingstationData();
+    @Value("${STATION_ID}")
+    private String station_id;
 
     private double getRandomDouble(int inMinimum, int inMaximum) {
         double number = (Math.random() * ((inMaximum - inMinimum) + 1)) + inMinimum;
@@ -20,8 +22,8 @@ public class TimingstationSimulation {
 
     private int getRandomInt(int inMinimum, int inMaximum) {
         double number = (Math.random() * ((inMaximum - inMinimum) + 1)) + inMinimum;
-        Long rounded = Math.round(number);
-        return rounded.intValue();
+        long rounded = Math.round(number);
+        return (int) rounded;
     }
 
     private long getRandomLong(long inMinimum, long inMaximum) {
@@ -29,17 +31,17 @@ public class TimingstationSimulation {
         return Math.round(number);
     }
 
-    public TimingstationData getData(String inTimingstationID) {
-        TimingstationData data = realData.get(inTimingstationID);
+    public TimingstationData getData() {
         CompetitionData cData;
         if (data == null) {
             data = new TimingstationData();
-            data.setTimingstationID(inTimingstationID);
+            data.setTimingstationID(station_id);
             data.setDistance(1);
             data.setAltitude(200);
             cData = new CompetitionData();
         } else {
             cData = data.getCompetitionData();
+            if (cData == null) cData = new CompetitionData();
         }
 
         WeatherData wData = new WeatherData();
@@ -63,7 +65,6 @@ public class TimingstationSimulation {
         System.arraycopy(newParty, 0, totalParty, oldParty.length, newParty.length);
         cData.setParty(totalParty);
         data.setCompetitionData(cData);
-        realData.put(inTimingstationID, data);
         return data;
     }
 }

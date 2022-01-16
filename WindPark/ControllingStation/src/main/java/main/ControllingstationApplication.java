@@ -2,13 +2,10 @@ package main;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
-@EnableScheduling
-public class MarathonApplication {
-
+public class ControllingstationApplication {
     public static void main(String[] args) {
-        SpringApplication.run(MarathonApplication.class, args);
+        SpringApplication.run(ControllingstationApplication.class, args);
     }
 }

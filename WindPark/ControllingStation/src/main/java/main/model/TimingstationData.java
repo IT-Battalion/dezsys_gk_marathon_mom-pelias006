@@ -1,10 +1,13 @@
-package model;
+package main.model;
+
+import org.springframework.beans.factory.annotation.Value;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class TimingstationData {
 
+    @Value("${station}")
     private String timingstationID;
     private String timestamp;
 
@@ -25,6 +28,17 @@ public class TimingstationData {
         this.unitDistance = "m";
         this.unitAltitude = "hm";
 
+    }
+
+    public TimingstationData(String timingstationID, String timestamp, double distance, String unitDistance, double altitude, String unitAltitude, WeatherData weatherData, CompetitionData competitionData) {
+        this.timingstationID = timingstationID;
+        this.timestamp = timestamp;
+        this.distance = distance;
+        this.unitDistance = unitDistance;
+        this.altitude = altitude;
+        this.unitAltitude = unitAltitude;
+        this.weatherData = weatherData;
+        this.competitionData = competitionData;
     }
 
     /**
