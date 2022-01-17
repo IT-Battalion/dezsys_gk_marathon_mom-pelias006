@@ -10,9 +10,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class TimingstationSimulation {
-    private TimingstationData data = new TimingstationData();
-    @Value("${STATION_ID}")
-    private String station_id;
+    private TimingstationData data;
+
+    public TimingstationSimulation() {
+        this.data = new TimingstationData();
+    }
 
     private double getRandomDouble(int inMinimum, int inMaximum) {
         double number = (Math.random() * ((inMaximum - inMinimum) + 1)) + inMinimum;
@@ -35,7 +37,6 @@ public class TimingstationSimulation {
         CompetitionData cData;
         if (data == null) {
             data = new TimingstationData();
-            data.setTimingstationID(station_id);
             data.setDistance(1);
             data.setAltitude(200);
             cData = new CompetitionData();

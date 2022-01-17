@@ -7,7 +7,6 @@ import java.util.Date;
 
 public class TimingstationData {
 
-    @Value("${station}")
     private String timingstationID;
     private String timestamp;
 

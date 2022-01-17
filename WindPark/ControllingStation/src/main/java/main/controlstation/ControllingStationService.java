@@ -14,10 +14,14 @@ public class ControllingStationService {
     }
 
     public TimingstationData getTimingstationData(String inTimingstationID) {
-        return data.get(inTimingstationID);
+        return data.get("t" + inTimingstationID);
     }
 
     public HashMap<String, TimingstationData> getData() {
+        for (int i = 0; i < data.keySet().size(); i++) {
+            data.put("t" + (i + 1), data.get(Integer.toString(i + 1)));
+            data.remove(Integer.toString(i + 1));
+        }
         return data;
     }
 }

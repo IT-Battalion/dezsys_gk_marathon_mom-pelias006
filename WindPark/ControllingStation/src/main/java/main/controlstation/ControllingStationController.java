@@ -18,10 +18,13 @@ public class ControllingStationController {
     public String timingstationMain() {
         String mainPage = "This is the ControllingStation application! (DEZSYS_MARATHON_REST) <br/><br/>" +
                 "<a href='/data'>Link to /data</a><br/>" +
+                "<a href='/data/xml'>Link to /data/xml</a><br/>" +
+                "<a href='/data/json'>Link to /data/json</a><br/>" +
+                "<a href='/data'>Link to /data</a><br/>" +
                 "<a href='/consumer.html'>Link to /consumer</a><br/>" +
-                "<a href='/timingstation/001/data'>Link to timingstation/001/data</a><br/>" +
-                "<a href='/timingstation/001/xml'>Link to timingstation/001/xml</a><br/>" +
-                "<a href='/timingstation/001/json'>Link to timingstation/001/json</a><br/>";
+                "<a href='/timingstation/1/data'>Link to timingstation/1/data</a><br/>" +
+                "<a href='/timingstation/1/xml'>Link to timingstation/1/xml</a><br/>" +
+                "<a href='/timingstation/1/json'>Link to timingstation/1/json</a><br/>";
         return mainPage;
     }
 

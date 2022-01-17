@@ -23,6 +23,6 @@ public class TimingstationService {
     }
 
     public void commitData(TimingstationData timingstationData) {
-        jmsTemplate.convertAndSend(station_queue, timingstationData);
+       jmsTemplate.convertAndSend(station_queue, timingstationData);
     }
 }

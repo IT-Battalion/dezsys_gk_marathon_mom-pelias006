@@ -6,8 +6,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class TimingstationData {
-
-    @Value("${STATION_ID}")
     private String timingstationID;
     private String timestamp;
 
@@ -23,22 +21,9 @@ public class TimingstationData {
      * Constructor
      */
     public TimingstationData() {
-
         this.timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(new Date());
         this.unitDistance = "m";
         this.unitAltitude = "hm";
-
-    }
-
-    public TimingstationData(String timingstationID, String timestamp, double distance, String unitDistance, double altitude, String unitAltitude, WeatherData weatherData, CompetitionData competitionData) {
-        this.timingstationID = timingstationID;
-        this.timestamp = timestamp;
-        this.distance = distance;
-        this.unitDistance = unitDistance;
-        this.altitude = altitude;
-        this.unitAltitude = unitAltitude;
-        this.weatherData = weatherData;
-        this.competitionData = competitionData;
     }
 
     /**
