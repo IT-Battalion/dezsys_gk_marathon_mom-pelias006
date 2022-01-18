@@ -28,12 +28,12 @@ public class ActiveMQConfig {
     public JmsTemplate jmsTemplate() {
         JmsTemplate jmsTemplate = new JmsTemplate();
         jmsTemplate.setConnectionFactory(connectionFactory());
-        jmsTemplate.setMessageConverter(converter());
+        jmsTemplate.setMessageConverter(messageConverter());
         return jmsTemplate;
     }
 
     @Bean
-    public MessageConverter converter() {
+    public MessageConverter messageConverter() {
         MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
         converter.setTargetType(MessageType.TEXT);
         converter.setTypeIdPropertyName("_type");
